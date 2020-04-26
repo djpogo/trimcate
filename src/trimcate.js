@@ -23,6 +23,10 @@ export default function (text, options) {
     return '';
   }
 
+  // trim text
+  // eslint-disable-next-line no-param-reassign
+  text = text.split(/\s+/).join(' ');
+
   // texts shorter than the prelude + postlude, will be return as wholesame
   if (text.length <= prelude + postlude) {
     return text;

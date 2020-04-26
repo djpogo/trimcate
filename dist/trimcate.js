@@ -1,6 +1,6 @@
-/*! trimcate - v1.0.0 - 2020-04-26
+/*! trimcate - v1.0.1 - 2020-04-26
 * https://github.com/djpogo/trimcate#readme
-* Copyright (c) 2020 ; Licensed GNU General Public License v3.0 */
+* Copyright (c) 2020 ; Licensed  */
 
 
 (function (global, factory) {
@@ -79,8 +79,11 @@
 
     if (!text) {
       return '';
-    } // texts shorter than the prelude + postlude, will be return as wholesame
+    } // trim text
+    // eslint-disable-next-line no-param-reassign
 
+
+    text = text.split(/\s+/).join(' '); // texts shorter than the prelude + postlude, will be return as wholesame
 
     if (text.length <= prelude + postlude) {
       return text;

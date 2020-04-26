@@ -1,6 +1,6 @@
 {
   "name": "trimcate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "convert long text into a previewable short text with with a start length and an end length",
   "entry": "src/trimcate.js",
   "main": "dist/trimcate.js",
@@ -32,12 +32,7 @@
     "text"
   ],
   "author": "Raoul Kramer",
-  "licenses": [
-    {
-      "name": "GNU General Public License v3.0",
-      "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
-    }
-  ],
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/djpogo/trimcate/issues"
   },
