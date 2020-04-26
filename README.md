@@ -20,3 +20,11 @@ you can set all or single or some of the options:
 `trimcate("Hello World…", { wholeWords: true })`
 `trimcate("Hello World…", { prelude: 36, postlude: 8 })`
 `trimcate("Hello World…", { prelude: 24, separator: '🤍' })`
+
+## usage
+
+  import trimcate from 'trimcate';
+  …
+  return trimcate(text);
+
+Have a look at [index.html](./index.html) to see a working example

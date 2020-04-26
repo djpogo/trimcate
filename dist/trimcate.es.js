@@ -1,10 +1,15 @@
+/*! trimcate - v1.0.0 - 2020-04-26
+* https://github.com/djpogo/trimcate#readme
+* Copyright (c) 2020 ; Licensed GNU General Public License v3.0 */
+
+
 /**
  * take long text into its parts and return a previewfriendly string
  * @param {String} text
  * @param {Object} options
  * @return {String}
  */
-export default function (text, options) {
+function trimcate (text, options) {
   // setup default options parametes by object destructuring
   const {
     prelude,
@@ -60,3 +65,5 @@ export default function (text, options) {
   // return shortened trimcated text
   return `${start}${separator}${end}`;
 }
+
+export default trimcate;

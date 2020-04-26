@@ -1,0 +1,60 @@
+{
+  "name": "trimcate",
+  "version": "1.0.0",
+  "description": "convert long text into a previewable short text with with a start length and an end length",
+  "entry": "src/trimcate.js",
+  "main": "dist/trimcate.js",
+  "browser": "dist/trimcate.min.js",
+  "module": "dist/trimcate.es.js",
+  "distname": "trimcate",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf ./dist",
+    "lint": "eslint ./src/*.js",
+    "prepublish": "npm run clean && npm run build",
+    "precommit": "npm run lint && npm run build",
+    "tag": "npm version minor --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit -am \"$PACKAGE_VERSION release\" && git tag v$PACKAGE_VERSION",
+    "patchTag": "npm version patch --no-git-tag-version && npm run build && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit -am \"$PACKAGE_VERSION release\" && git tag v$PACKAGE_VERSION"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djpogo/trimcate.git"
+  },
+  "keywords": [
+    "truncate",
+    "concat",
+    "text",
+    "long",
+    "text",
+    "shorten",
+    "text",
+    "preview",
+    "text"
+  ],
+  "author": "Raoul Kramer",
+  "licenses": [
+    {
+      "name": "GNU General Public License v3.0",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.en.html"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/djpogo/trimcate/issues"
+  },
+  "homepage": "https://github.com/djpogo/trimcate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.7.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^7.0.0",
+    "rollup-plugin-license": "^2.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}

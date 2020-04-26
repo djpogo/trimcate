@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Trimcate Demo Page</title>
+        <style>
+            html, body {
+                max-width: 640px;
+                width: 100%;
+                padding: .6em;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            code {
+                font-weight: 700;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Trimcate Demo Page</h1>
+        <label for="text">Enter text to be trimcated:</label>
+        <textarea id="text" style="width: 100%; min-height: 8em;">The quick brown fox jumps over a lazy dog.</textarea>
+        <fieldset>
+            <legend>Trimcate Config</legend>
+            <label for="prelude"><code>prelude</code> Length</label> <input type="text" id="prelude" inputmode="numeric" value="24" name="prelude"><br>
+            <label for="postlude"><code>postlude</code> Length</label> <input type="text" id="postlude" inputmode="numeric" value="16" name="postlude"><br>
+            <label for="separator"><code>separator</code></label><input type="text" id="separator" inputmode="text" value="…" name="separator"><br>
+            <label for="wholeWords"><code>wholeWords</code></label><input type="checkbox" id="wholeWords" name="wholeWords"><br>
+            <button type="button">generate trimcate()</button>
+        </fieldset>
+        <h2>Result</h2>
+        <section id="trimcateResult"></section>
+        <h2>Trimcate Call</h2>
+        <code id="trimcateCall"></code>
+        <script src="dist/trimcate.min.js"></script>
+        <script>
+            function executeTrimcate() {
+                var text = document.querySelector('#text').value;
+                var prelude = parseInt(document.querySelector('[name="prelude"]').value, 10);
+                var postlude = parseInt(document.querySelector('[name="postlude"]').value, 10);
+                var separator = document.querySelector('[name="separator"]').value;
+                var wholeWords = document.querySelector('[name="wholeWords"]').checked;
+    
+                document.querySelector('#trimcateResult').innerText = trimcate(text, {prelude, postlude, separator, wholeWords});
+                document.querySelector('#trimcateCall').innerText = `trimcate(text, { prelude: ${prelude}, postlude: ${postlude}, separator: "${separator}", wholeWords: ${wholeWords.toString()}});`;
+            }
+            document.querySelector('[type="button"]').addEventListener('click', executeTrimcate);
+            document.querySelector('fieldset').addEventListener('change', executeTrimcate);
+            executeTrimcate();
+        </script>
+    </body>
+</html>
