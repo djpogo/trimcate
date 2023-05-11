@@ -1,8 +1,12 @@
 /**
  * take long text into its parts and return a previewfriendly string
  * @param {String} text
- * @param {Object} options
- * @return {String}
+ * @param {Object} [options]
+ * @param {Number} [options.prelude] - number of charactes before `separator`
+ * @param {Number} [options.postlude] - number of characters after `separator`
+ * @param {Boolean} [options.wholeWords] - flag to keep word together and dont create word chunks
+ * @param {String} [options.separator] - String/Character used as separator
+ * @return {String} - shortened version of text
  */
 export default function (text, options) {
   // setup default options parametes by object destructuring
@@ -57,8 +61,8 @@ export default function (text, options) {
       return text;
     }
   } else {
-    start = text.substr(0, prelude);
-    end = text.substr(postlude * -1);
+    start = text.substring(0, prelude);
+    end = postlude === 0 ? '' : text.substring(postlude * -1);
   }
 
   // return shortened trimcated text

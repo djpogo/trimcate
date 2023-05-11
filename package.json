@@ -1,6 +1,6 @@
 {
   "name": "trimcate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "convert long text into a previewable short text with with a start length and an end length",
   "entry": "src/trimcate.js",
   "main": "dist/trimcate.js",
