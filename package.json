@@ -2,13 +2,21 @@
   "name": "trimcate",
   "version": "1.0.2",
   "description": "convert long text into a previewable short text with with a start length and an end length",
-  "entry": "src/trimcate.js",
-  "main": "dist/trimcate.js",
-  "browser": "dist/trimcate.min.js",
+  "main": "dist/trimcate.umd.js",
   "module": "dist/trimcate.es.js",
-  "distname": "trimcate",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/truncate.es.js",
+      "require": "./dist/truncate.umd.js"
+    }
+  },
   "scripts": {
-    "build": "rollup -c",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "clean": "rimraf ./dist",
     "lint": "eslint ./src/*.js",
     "prepublish": "npm run clean && npm run build",
@@ -38,18 +46,8 @@
   },
   "homepage": "https://github.com/djpogo/trimcate#readme",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.7.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-filesize": "^7.0.0",
-    "rollup-plugin-license": "^2.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "eslint": "^8.40.0",
+    "rimraf": "^5.0.0",
+    "vite": "^4.3.5"
   }
 }
