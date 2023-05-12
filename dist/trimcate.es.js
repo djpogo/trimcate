@@ -1,4 +1,4 @@
-/*! trimcate - v1.0.2 - 2023-05-11
+/*! trimcate - v1.0.2 - 2023-05-12
 * https://github.com/djpogo/trimcate#readme
 * Copyright (c) 2023 ; Licensed  */
 
